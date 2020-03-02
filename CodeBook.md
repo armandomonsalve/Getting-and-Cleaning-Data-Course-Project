@@ -1,24 +1,20 @@
 The run_analysis.R script goes through the instructions in the Getting and Cleaning Data Course project:
 
 1. Merges the training and the test sets to create one data set:
-
-1.1 Importing the dataset
+- Importing the dataset
 Dataset downloaded and extracted under the folder ./getdata_projectfiles_UCI HAR Dataset/UCI HAR Dataset
-
-1.2 Creating R objects for each data set imported:
+- Creating R objects for each data set imported:
 X_train <- ./train/X_train.txt (Rows: 7352, Columns: 561)
 y_train <- ./train/y_train.txt (Rows: 7352, Columns: 1)
 subject_train <- ./train/subject_train.txt (Rows: 7352, Columns: 1)
 X_test <- ./test/X_test.txt (Rows: 2947, Columns: 561)
 y_test <- ./test/y_test.txt (Rows: 2947, Columns: 1)
 subject_test <- ./test/subject_test.txt (Rows: 2947, Columns: 1)
-
-1.3 Creating 3 sets: X, y and subj
+- Creating 3 sets: X, y and subj
 X is created by merging X_train and X_test using the rbind() function (Rows: 10299, Columns: 561).
 y is created by merging y_train and y_test using the rbind() function (Rows: 10299, Columns: 1).
 subj is created by merging subject_train and subject_test using the rbind() function (Rows: 10299, Columns: 1).
-
-1.4 Merging the 3 datasets to complete the task
+- Merging the 3 datasets to complete the task
 "union" set is created by merging X, y and subj using the cbind() function (Rows: 10299, Columns: 563).
 
 
