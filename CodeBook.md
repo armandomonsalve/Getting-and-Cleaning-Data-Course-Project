@@ -79,5 +79,3 @@ All "gravity" in column names were changed to "Gravity"
 
 
 
-
-
