@@ -19,26 +19,26 @@ subj is created by merging subject_train and subject_test using the rbind() func
 
 
 2. Extracts only the measurements on the mean and standard deviation for each measurement:
-2.1 Importing column names
+- Importing column names
 features <- ./features.txt
-2.2 Assigning column names to the "union" data set based on features set.
+- Assigning column names to the "union" data set based on features set.
 Transforming features$V2 into character first (since it was imported as a factor variable) and then, using colnames() function, assigning features$V2, "Activity" and "Subject" as the names of the "union" set columns.
-2.3 Identifying columns with "mean" and "std" in their names
+- Identifying columns with "mean" and "std" in their names
 "cols_mean_std" is created by using the grepl() function to identify column names with "mean" or "std" within their names.
-2.4 Subsetting dataset with only the "mean" and "std" columns
+- Subsetting dataset with only the "mean" and "std" columns
 Using select() function (dplyr package) to create a smaller data set with the column names contained in "cols_mean_std", along with "Activity" and "Subject" columns.
-2.5 Changing column names since features names are not unique
+- Changing column names since features names are not unique
 Having that features.txt had a column called "V1" indexing the column names from 1 through 561, a "features2" variable is created pasting features$V1 and features$V2 so every variable is differenciated from one another.
-2.6 Identifying columns with "mean" and "std" in their names (again)
+- Identifying columns with "mean" and "std" in their names (again)
 "cols_mean_std" is created by using the grepl() function to identify column names with "mean" or "std" within their names.
-2.7 Subsetting dataset with only the "mean" and "std" columns (again)
+- Subsetting dataset with only the "mean" and "std" columns (again)
 "meanstd" data set is created by using select() function (dplyr package) to subset the "union" data set with the column names contained in "cols_mean_std", along with "Activity" and "Subject" columns (Rows: 10299, Columns: 88).
 
 
 3. Uses descriptive activity names to name the activities in the data set
-3.1 Importing activity labels set
+- Importing activity labels set
 activity_labels <- ./activity_labels.txt (Rows: 6, Columns: 2)
-3.2 Creating activity_names column
+- Creating activity_names column
 meanstd$activity_names is created using activity_labels set, identifying with "Activity" column the corresponding activity description.
 
 
@@ -59,23 +59,5 @@ All "gravity" in column names were changed to "Gravity"
 
 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-5.1 "final" data set is created by grouping the data by "Subject" and "activity_names" and then applying the summarise_all() function to calculate the mean on the rest of the variables (Rows: 180, Columns: 89).
-5.2 Using write.table to write "final" set to project folder.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- "final" data set is created by grouping the data by "Subject" and "activity_names" and then applying the summarise_all() function to calculate the mean on the rest of the variables (Rows: 180, Columns: 89).
+- Using write.table to write "final" set to project folder.
